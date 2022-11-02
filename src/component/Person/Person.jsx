@@ -1,14 +1,18 @@
 import "./Person.css";
 import { Component } from "react";
 
-class Person extends Component {
+export default class Person extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <div className="App">
-        <h1> This is Class Component</h1>
+      <div>
+        <h1 className="App">
+          This is Class Component & Name: {this.props.name} & Age:{" "}
+          {this.props.age}
+        </h1>
       </div>
     );
   }
 }
-
-export default Person;

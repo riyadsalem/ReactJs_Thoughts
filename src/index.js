@@ -12,7 +12,6 @@ root.render(
     <Test name="MS" age="99">
       This is Children Data
     </Test>
-
-    <Person />
+    <Person name="RMS" age="121" />
   </React.StrictMode>
 );
