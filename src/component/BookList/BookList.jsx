@@ -36,6 +36,7 @@ export default class BookList extends Component {
         <Book
           BookName={this.state.books[2].BookName}
           Writer={this.state.books[2].Writer}
+          change={this.changeBookState}
         />
       </div>
     );
