@@ -2,7 +2,6 @@ import "./Test.css";
 import React from "react";
 
 const Test = () => {
-  /*
   return (
     <>
       <div className="App">
@@ -10,13 +9,15 @@ const Test = () => {
       </div>
     </>
   );
-  */
 
+  // JSX
+  /*
   return React.createElement(
     "div",
     { className: "App" },
     React.createElement("h1", null, "This is test file")
   );
+  */
 };
 
 export default Test;
