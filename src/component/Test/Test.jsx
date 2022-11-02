@@ -1,11 +1,14 @@
 import "./Test.css";
 import React from "react";
 
-const Test = () => {
+const Test = (props) => {
   return (
     <>
       <div className="App">
-        <h1>Tis is Test File</h1>
+        <h1>
+          My Name: {props.name} |&| Age:{props.age} |&| Id:
+          {Math.random().toFixed(3)} |&| New Data: {props.children}
+        </h1>
       </div>
     </>
   );
