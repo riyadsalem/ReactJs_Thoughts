@@ -9,7 +9,7 @@ export default class Person extends Component {
     return (
       <div>
         <h1 className="App">
-          This is Class Component & Name: {this.props.name} & Age:{" "}
+          This is Class Component & Name: {this.props.name} & Age:
           {this.props.age}
         </h1>
       </div>
