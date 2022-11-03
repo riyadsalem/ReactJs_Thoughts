@@ -35,6 +35,7 @@ export default class BookList extends Component {
     this.setState({ books: books });
   };
 
+  /*
   changeInput = (event) => {
     this.setState({
       books: [
@@ -43,6 +44,15 @@ export default class BookList extends Component {
         { BookName: "The Alchemist Riyad MS NEW", Writer: "Paulo NEW" },
       ],
     });
+  };
+  */
+
+  changeInput = (event, index) => {
+    const book = { ...this.state.books[index] };
+    book.BookName = event.target.value;
+    const books = [...this.state.books];
+    books[index] = book;
+    this.setState({ books: books });
   };
 
   render() {
@@ -62,6 +72,7 @@ export default class BookList extends Component {
           BookName={book.BookName}
           Writer={book.Writer}
           delete={() => this.deleteBookState(index)}
+          inputName={(event) => this.changeInput(event, index)}
         />
       );
     });
@@ -69,12 +80,14 @@ export default class BookList extends Component {
     return (
       <div className="App">
         <h1 style={styleH1}>Tihs is BookList </h1>
+        {/** 
         <label>
           <button onClick={this.changeBookState} style={{ color: "red" }}>
             Change State
           </button>
           <input type="text" onChange={this.changeInput} />
         </label>
+        */}
 
         {books}
 
