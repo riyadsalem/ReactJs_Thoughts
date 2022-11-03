@@ -15,6 +15,7 @@ export default class BookList extends Component {
       { id: "2", BookName: "Rich Dad and poor Dad", Writer: "Dan Brown" },
       { id: "3", BookName: "The Alchemist Riyad MS", Writer: "Paulo" },
     ],
+    showBooks: true,
   };
 
   /*
@@ -29,12 +30,6 @@ export default class BookList extends Component {
   };
   */
 
-  deleteBookState = (index) => {
-    const books = this.state.books;
-    books.splice(index, 1);
-    this.setState({ books: books });
-  };
-
   /*
   changeInput = (event) => {
     this.setState({
@@ -47,12 +42,22 @@ export default class BookList extends Component {
   };
   */
 
+  deleteBookState = (index) => {
+    const books = this.state.books;
+    books.splice(index, 1);
+    this.setState({ books: books });
+  };
+
   changeInput = (event, index) => {
     const book = { ...this.state.books[index] };
     book.BookName = event.target.value;
     const books = [...this.state.books];
     books[index] = book;
     this.setState({ books: books });
+  };
+
+  toggleBooks = () => {
+    this.setState({ showBooks: !this.state.showBooks });
   };
 
   render() {
@@ -79,7 +84,9 @@ export default class BookList extends Component {
 
     return (
       <div className="App">
-        <h1 style={styleH1}>Tihs is BookList </h1>
+        <h1 style={styleH1}>Book List </h1>
+        <button onClick={this.toggleBooks}>Toggle Books</button>
+        {this.state.showBooks ? books : null}
         {/** 
         <label>
           <button onClick={this.changeBookState} style={{ color: "red" }}>
@@ -87,11 +94,7 @@ export default class BookList extends Component {
           </button>
           <input type="text" onChange={this.changeInput} />
         </label>
-        */}
 
-        {books}
-
-        {/** 
         <Book
           BookName={this.state.books[0].BookName}
           Writer={this.state.books[0].Writer}
