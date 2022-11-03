@@ -20,11 +20,23 @@ export default class BookList extends Component {
       ],
     });
   };
+
+  changeInput = (event) => {
+    this.setState({
+      books: [
+        { BookName: event.target.value, Writer: "George NEW" },
+        { BookName: "Rich Dad and poor Dad NEW", Writer: "Dan Brown NEW" },
+        { BookName: "The Alchemist Riyad MS NEW", Writer: "Paulo NEW" },
+      ],
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Tihs is BookList </h1>
         <button onClick={this.changeBookState}>Change State</button>
+        <input type="text" onChange={this.changeInput} />
         <Book
           BookName={this.state.books[0].BookName}
           Writer={this.state.books[0].Writer}
