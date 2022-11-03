@@ -3,6 +3,12 @@ import { Component } from "react";
 import { Book } from "../index";
 
 export default class BookList extends Component {
+  /*
+  #styleH1 = {
+    color: "red",
+  };
+  */
+
   state = {
     books: [
       { BookName: "Think and Grow Rich", Writer: "George" },
@@ -20,11 +26,34 @@ export default class BookList extends Component {
       ],
     });
   };
+
+  changeInput = (event) => {
+    this.setState({
+      books: [
+        { BookName: event.target.value, Writer: "George NEW" },
+        { BookName: "Rich Dad and poor Dad NEW", Writer: "Dan Brown NEW" },
+        { BookName: "The Alchemist Riyad MS NEW", Writer: "Paulo NEW" },
+      ],
+    });
+  };
+
   render() {
+    const styleH1 = {
+      border: "1px solid red",
+      borderRadius: "5px",
+      backgroundColor: "Red",
+      color: "white",
+      padding: "10px",
+    };
     return (
       <div className="App">
-        <h1>Tihs is BookList </h1>
-        <button onClick={this.changeBookState}>Change State</button>
+        <h1 style={styleH1}>Tihs is BookList </h1>
+        <label>
+          <button onClick={this.changeBookState} style={{ color: "red" }}>
+            Change State
+          </button>
+          <input type="text" onChange={this.changeInput} />
+        </label>
         <Book
           BookName={this.state.books[0].BookName}
           Writer={this.state.books[0].Writer}
