@@ -17,6 +17,7 @@ export default class BookList extends Component {
     ],
   };
 
+  /*
   changeBookState = () => {
     this.setState({
       books: [
@@ -25,6 +26,13 @@ export default class BookList extends Component {
         { BookName: "The Alchemist Riyad MS NEW", Writer: "Paulo NEW" },
       ],
     });
+  };
+  */
+
+  deleteBookState = (index) => {
+    const books = this.state.books;
+    books.splice(index, 1);
+    this.setState({ books: books });
   };
 
   changeInput = (event) => {
@@ -47,8 +55,14 @@ export default class BookList extends Component {
     };
 
     const booksState = this.state.books;
-    const books = booksState.map((book) => {
-      return <Book BookName={book.BookName} Writer={book.Writer} />;
+    const books = booksState.map((book, index) => {
+      return (
+        <Book
+          BookName={book.BookName}
+          Writer={book.Writer}
+          delete={() => this.deleteBookState(index)}
+        />
+      );
     });
 
     return (
