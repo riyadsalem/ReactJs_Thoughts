@@ -45,6 +45,12 @@ export default class BookList extends Component {
       color: "white",
       padding: "10px",
     };
+
+    const booksState = this.state.books;
+    const books = booksState.map((book) => {
+      return <Book BookName={book.BookName} Writer={book.Writer} />;
+    });
+
     return (
       <div className="App">
         <h1 style={styleH1}>Tihs is BookList </h1>
@@ -54,6 +60,10 @@ export default class BookList extends Component {
           </button>
           <input type="text" onChange={this.changeInput} />
         </label>
+
+        {books}
+
+        {/** 
         <Book
           BookName={this.state.books[0].BookName}
           Writer={this.state.books[0].Writer}
@@ -67,6 +77,7 @@ export default class BookList extends Component {
           Writer={this.state.books[2].Writer}
           change={this.changeBookState}
         />
+        */}
       </div>
     );
   }
