@@ -70,24 +70,29 @@ export default class BookList extends Component {
     };
 
     const booksState = this.state.books;
-    const books = booksState.map((book, index) => {
-      return (
-        <Book
-          key={book.id}
-          BookName={book.BookName}
-          Writer={book.Writer}
-          delete={() => this.deleteBookState(index)}
-          inputName={(event) => this.changeInput(event, index)}
-        />
-      );
-    });
+    let books = null;
+    if (this.state.showBooks) {
+      books = booksState.map((book, index) => {
+        return (
+          <Book
+            key={book.id}
+            BookName={book.BookName}
+            Writer={book.Writer}
+            delete={() => this.deleteBookState(index)}
+            inputName={(event) => this.changeInput(event, index)}
+          />
+        );
+      });
+    } // End if
 
     return (
       <div className="App">
         <h1 style={styleH1}>Book List </h1>
         <button onClick={this.toggleBooks}>Toggle Books</button>
-        {this.state.showBooks ? books : null}
+        {books}
         {/** 
+        {this.state.showBooks ? books : null}
+
         <label>
           <button onClick={this.changeBookState} style={{ color: "red" }}>
             Change State
@@ -108,6 +113,7 @@ export default class BookList extends Component {
           Writer={this.state.books[2].Writer}
           change={this.changeBookState}
         />
+
         */}
       </div>
     );
