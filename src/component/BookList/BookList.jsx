@@ -11,9 +11,9 @@ export default class BookList extends Component {
 
   state = {
     books: [
-      { BookName: "Think and Grow Rich", Writer: "George" },
-      { BookName: "Rich Dad and poor Dad", Writer: "Dan Brown" },
-      { BookName: "The Alchemist Riyad MS", Writer: "Paulo" },
+      { id: "1", BookName: "Think and Grow Rich", Writer: "George" },
+      { id: "2", BookName: "Rich Dad and poor Dad", Writer: "Dan Brown" },
+      { id: "3", BookName: "The Alchemist Riyad MS", Writer: "Paulo" },
     ],
   };
 
@@ -58,6 +58,7 @@ export default class BookList extends Component {
     const books = booksState.map((book, index) => {
       return (
         <Book
+          key={book.id}
           BookName={book.BookName}
           Writer={book.Writer}
           delete={() => this.deleteBookState(index)}
