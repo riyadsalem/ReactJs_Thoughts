@@ -1,11 +1,13 @@
 import "./App.css";
-import { BookList } from "./component/index";
+import ContextAPI from "./component/Context.api";
+import { BookList } from "./component";
 
 function App() {
   return (
     <>
       <div className="App">
-        <BookList />
+        {/* <BookList /> */}
+        <ContextAPI />
       </div>
     </>
   );
