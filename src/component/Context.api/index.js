@@ -19,6 +19,7 @@ export default class ContextAPI extends React.Component {
       <ThemeContext.Provider
         value={{
           theme: this.state.theme,
+          toggleTheme: this.toggleTheme,
         }}
       >
         <div
@@ -26,7 +27,7 @@ export default class ContextAPI extends React.Component {
         >
           <h1>Hi From App</h1>
           <One />
-          <ToggleThemeBtn toggleThemeBtn={this.toggleTheme} />
+          <ToggleThemeBtn />
         </div>
       </ThemeContext.Provider>
     );
